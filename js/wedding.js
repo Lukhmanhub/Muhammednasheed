@@ -289,14 +289,73 @@ if (musicPillDet) musicPillDet.addEventListener('click', toggleMusic);
 /* ════════════════════════════════════════════
    DOWNLOAD CARD BUTTON
 ════════════════════════════════════════════ */
+async function downloadWeddingCard(btn) {
+  const CARD_URL = 'assets/wedding-card.jpg';
+  const FILENAME = 'Mohammed-Henna-WeddingCard.jpg';
+
+  const origText = btn.textContent;
+  btn.textContent = 'Downloading…';
+  btn.disabled    = true;
+
+  try {
+    const res  = await fetch(CARD_URL);
+    if (!res.ok) throw new Error('Card image not found');
+    const blob = await res.blob();
+    const file = new File([blob], FILENAME, { type: blob.type || 'image/jpeg' });
+
+    // Mobile: native share sheet (WhatsApp status, etc.)
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({
+        files: [file],
+        title: 'Mohammed & Henna — Wedding Card',
+        text:  'You\'re invited! ✨'
+      });
+    } else {
+      // Desktop / fallback: trigger download
+      const url = URL.createObjectURL(blob);
+      const a   = document.createElement('a');
+      a.href     = url;
+      a.download = FILENAME;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 60000);
+    }
+  } catch {
+    // Silently fail — card image may not be uploaded yet
+  } finally {
+    btn.textContent = origText;
+    btn.disabled    = false;
+  }
+}
+
 document.querySelectorAll('.download-btn:not(.disabled)').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const link = document.createElement('a');
-    link.href     = '#';
-    link.download = 'Mohammed-Henna-WeddingCard.pdf';
-    link.click();
-  });
+  btn.addEventListener('click', () => downloadWeddingCard(btn));
 });
+
+/* ════════════════════════════════════════════
+   COPY GROUP CODE
+════════════════════════════════════════════ */
+(function initCopyCode() {
+  const row = document.querySelector('.gallery-code-row');
+  if (!row) return;
+
+  function copyCode() {
+    const label = row.querySelector('.gallery-code-label');
+    navigator.clipboard.writeText('NUOSAZ').then(() => {
+      row.classList.add('copied');
+      label.textContent = 'Copied! ✓';
+      vibrate(15);
+      setTimeout(() => {
+        row.classList.remove('copied');
+        label.textContent = 'Group Code';
+      }, 2200);
+    }).catch(() => {});
+  }
+
+  row.addEventListener('click', copyCode);
+  row.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyCode(); }
+  });
+})();
 
 /* ════════════════════════════════════════════
    HAPTIC FEEDBACK (PWA / Safari)

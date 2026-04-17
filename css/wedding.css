@@ -836,8 +836,17 @@ img { display: block; }
   background: rgba(120,2,105,0.06);
   border-radius: var(--radius-sm);
   border: 1px solid rgba(120,2,105,0.12);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
 }
-.gallery-code-label { font-size: 12px; color: var(--text-body); }
+.gallery-code-row:active { background: rgba(120,2,105,0.14); }
+.gallery-code-row.copied { background: rgba(120,2,105,0.11); }
+.gallery-code-row.copied .gallery-code-label { color: var(--primary); font-weight: 500; }
+.gallery-code-label { font-size: 12px; color: var(--text-body); transition: color 0.2s; }
+.gallery-code-right { display: flex; align-items: center; gap: 7px; }
+.gallery-copy-icon { color: var(--primary); opacity: 0.55; flex-shrink: 0; }
+.gallery-code-row.copied .gallery-copy-icon { opacity: 0; transition: opacity 0.15s; }
 .gallery-code {
   font-family: 'Courier New', monospace;
   font-size: 15px; font-weight: 700;
