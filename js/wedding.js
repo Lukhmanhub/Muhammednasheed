@@ -290,8 +290,8 @@ if (musicPillDet) musicPillDet.addEventListener('click', toggleMusic);
    DOWNLOAD CARD BUTTON
 ════════════════════════════════════════════ */
 async function downloadWeddingCard(btn) {
-  const CARD_URL = 'assets/wedding-card.jpg';
-  const FILENAME = 'Mohammed-Henna-WeddingCard.jpg';
+  const CARD_URL = 'assets/wedding-card.png';
+  const FILENAME = 'Mohammed-Henna-WeddingCard.png';
 
   const origText = btn.textContent;
   btn.textContent = 'Downloading…';
@@ -301,7 +301,7 @@ async function downloadWeddingCard(btn) {
     const res  = await fetch(CARD_URL);
     if (!res.ok) throw new Error('Card image not found');
     const blob = await res.blob();
-    const file = new File([blob], FILENAME, { type: blob.type || 'image/jpeg' });
+    const file = new File([blob], FILENAME, { type: blob.type || 'image/png' });
 
     // Mobile: native share sheet (WhatsApp status, etc.)
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
