@@ -674,32 +674,74 @@ img { display: block; }
 .contact-center .contact-name { font-size: 18px; }
 .contact-center .phone-btn { margin-top: 10px; }
 
-/* ── How to Reach ────────────────────────── */
-.reach-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
-.reach-card {
-  display: flex; flex-direction: column; align-items: center;
-  gap: 8px; padding: 18px 10px 14px; text-align: center;
-}
-.reach-card span { font-size: 12px; color: var(--text-body); }
-
-/* ── Gallery row ─────────────────────────── */
-.gallery-row {
+/* ── How to Reach — transport cards ─────── */
+.transport-cards { display: flex; flex-direction: column; gap: 10px; }
+.transport-card { padding: 16px 18px; }
+.transport-header {
   display: flex; align-items: center; gap: 14px;
-  cursor: pointer; transition: background 0.2s;
+  margin-bottom: 14px;
 }
-.gallery-row:active { background: #efefef; }
+.transport-icon {
+  width: 46px; height: 46px; border-radius: 10px;
+  background: #f0f0f0;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  color: var(--primary);
+}
+.transport-title {
+  font-size: 16px; font-weight: 500; color: var(--text-dark);
+}
+.transport-list {
+  list-style: disc; padding-left: 18px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.transport-list li { font-size: 13px; color: var(--text-body); line-height: 1.5; }
+.t-highlight { color: var(--primary); font-weight: 500; }
+
+/* ── Photo Gallery — Kwikpic card ────────── */
 .gallery-icon-wrap {
-  width: 48px; height: 48px; border-radius: 8px;
+  width: 48px; height: 48px; border-radius: 10px;
   background: var(--primary);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  color: #fff;
 }
-.gallery-text { flex: 1; }
-.gallery-text h3 {
+.gallery-card { display: flex; flex-direction: column; gap: 14px; }
+.gallery-card-top { display: flex; align-items: center; gap: 14px; }
+.gallery-card-text h3 {
   font-family: var(--font-serif);
   font-size: 20px; font-weight: 400; color: var(--text-dark);
   letter-spacing: -0.02em; line-height: 1.1;
 }
-.gallery-text p { font-size: 12px; color: var(--text-body); margin-top: 4px; line-height: 1.4; }
+.gallery-card-text p { font-size: 12px; color: var(--text-body); margin-top: 4px; line-height: 1.4; }
+.gallery-join-btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 13px 20px; border-radius: var(--radius-pill);
+  background: var(--primary); color: #fff;
+  font-size: 14px; font-weight: 500;
+  transition: background 0.2s, transform 0.15s;
+}
+.gallery-join-btn:active { background: var(--primary-dark); transform: scale(0.97); }
+.gallery-join-links { display: flex; }
+.gallery-link-btn {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 11px 16px; border-radius: var(--radius-pill);
+  border: 1px solid var(--primary); color: var(--primary);
+  font-size: 13px; font-weight: 400;
+  transition: background 0.2s;
+}
+.gallery-link-btn:active { background: rgba(120,2,105,0.08); }
+.gallery-code-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(120,2,105,0.06);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(120,2,105,0.12);
+}
+.gallery-code-label { font-size: 12px; color: var(--text-body); }
+.gallery-code {
+  font-family: 'Courier New', monospace;
+  font-size: 15px; font-weight: 700;
+  letter-spacing: 0.12em; color: var(--primary);
+}
 
 /* ── Downloads ───────────────────────────── */
 .download-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }

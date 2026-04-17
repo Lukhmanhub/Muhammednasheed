@@ -306,3 +306,8 @@ function vibrate(pattern) {
 }
 
 swipeThumb.addEventListener('touchstart', () => vibrate(10), { passive: true });
+
+/* ════════════════════════════════════════════
+   LUCIDE ICONS — initialise all data-lucide
+════════════════════════════════════════════ */
+if (typeof lucide !== 'undefined') lucide.createIcons();

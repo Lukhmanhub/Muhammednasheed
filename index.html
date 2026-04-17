@@ -26,14 +26,8 @@
     <button class="music-pill" id="musicPill" aria-label="Play Nikkah Nasheed">
       <span class="music-pill-label">Nikkah nasheed</span>
       <span class="music-pill-btn">
-        <!-- shown when NOT playing -->
-        <svg class="mp-icon icon-play" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
-        </svg>
-        <!-- shown when playing -->
-        <svg class="mp-icon icon-pause" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
-        </svg>
+        <i data-lucide="music-2" class="mp-icon icon-play" width="12" height="12"></i>
+        <i data-lucide="pause" class="mp-icon icon-pause" width="12" height="12"></i>
       </span>
     </button>
 
@@ -96,9 +90,7 @@
     <div class="swipe-wrap splash-enter" style="--delay:1.2s">
       <div class="swipe-track" id="swipeTrack" role="button" aria-label="Swipe right to confirm attendance">
         <div class="swipe-thumb" id="swipeThumb">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#780269" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 18l6-6-6-6"/>
-          </svg>
+          <i data-lucide="chevron-right" width="28" height="28" style="color:#780269"></i>
         </div>
         <span class="swipe-label" id="swipeLabel">Yeah, I am attending</span>
         <div class="swipe-fill" id="swipeFill"></div>
@@ -130,12 +122,8 @@
       <button class="music-pill music-pill-details" id="musicPillDetails" aria-label="Toggle music">
         <span class="music-pill-label">Nikkah nasheed</span>
         <span class="music-pill-btn">
-          <svg class="mp-icon icon-play" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
-          </svg>
-          <svg class="mp-icon icon-pause" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
-          </svg>
+          <i data-lucide="music-2" class="mp-icon icon-play" width="12" height="12"></i>
+          <i data-lucide="pause" class="mp-icon icon-pause" width="12" height="12"></i>
         </span>
       </button>
 
@@ -165,9 +153,7 @@
       <div class="date-row">
         <span class="date-row-text">Wednesday, May 20, 2026</span>
         <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mohammed+%26+Henna+Wedding&dates=20260520T120000Z/20260520T150000Z&details=Nikah+ceremony&location=Malabar+Avenue+Auditorium,+Ramanattukara" target="_blank" class="mark-date-btn" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-          </svg>
+          <i data-lucide="calendar" width="16" height="16"></i>
           Mark the date
         </a>
       </div>
@@ -181,17 +167,12 @@
               <h3 class="venue-name">Malabar Avenue Auditorium</h3>
               <p class="venue-addr">Ramanattukara, Kozhikode<br>Kerala, India</p>
               <div class="venue-time">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#516271" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                </svg>
+                <i data-lucide="clock" width="16" height="16" style="color:#516271"></i>
                 <span>5:30 PM – 8:30 PM · Wed, 20 May 2026</span>
               </div>
             </div>
             <a href="https://maps.google.com/?q=Malabar+Avenue+Auditorium+Ramanattukara+Kozhikode" target="_blank" rel="noopener" class="directions-btn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-                <circle cx="12" cy="9" r="2.5"/>
-              </svg>
+              <i data-lucide="map-pin" width="16" height="16"></i>
               Get Directions
             </a>
           </div>
@@ -209,9 +190,7 @@
             <a href="tel:+918606805836" class="contact-phone">+91 8606 805 836</a>
           </div>
           <a href="tel:+918606805836" class="phone-btn primary" aria-label="Call Ramsheer EP">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-            </svg>
+            <i data-lucide="phone" width="20" height="20"></i>
           </a>
         </div>
 
@@ -242,43 +221,83 @@
       <!-- ── How to Reach ── -->
       <div class="card-section stagger-child">
         <h2 class="section-heading">How to Reach</h2>
-        <div class="reach-grid">
-          <div class="info-card reach-card">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#516271" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19 4s-3.5 1-4.5 2.5L11 9.2 2.8 7.4l-1.5 1.5L8 12l-2 2H4l-1 1 3 2 2 3 1-1v-2l2-2 3.5 6.7z"/>
-            </svg>
-            <span>By Airplane</span>
+        <div class="transport-cards">
+
+          <div class="info-card transport-card">
+            <div class="transport-header">
+              <span class="transport-icon">
+                <i data-lucide="plane" width="22" height="22"></i>
+              </span>
+              <h3 class="transport-title">By Air</h3>
+            </div>
+            <ul class="transport-list">
+              <li>The nearest airport is <span class="t-highlight">Calicut International Airport (CCJ)</span>.</li>
+              <li>Distance: <span class="t-highlight">14.3 km</span></li>
+              <li>Recommended option: App-based taxi or local taxi.</li>
+              <li>Drive: <span class="t-highlight">30min</span></li>
+            </ul>
           </div>
-          <div class="info-card reach-card">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#516271" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="4" y="3" width="16" height="16" rx="2"/><line x1="12" y1="3" x2="12" y2="19"/><line x1="4" y1="11" x2="20" y2="11"/><path d="M8 19l-2 2M16 19l2 2"/>
-            </svg>
-            <span>By Train</span>
+
+          <div class="info-card transport-card">
+            <div class="transport-header">
+              <span class="transport-icon">
+                <i data-lucide="train-front" width="22" height="22"></i>
+              </span>
+              <h3 class="transport-title">By Train</h3>
+            </div>
+            <ul class="transport-list">
+              <li>The nearest station is <span class="t-highlight">Feroke Railway Station</span>.</li>
+              <li>Distance: <span class="t-highlight">4.4 km</span></li>
+              <li>Recommended option: App-based taxi or local Autorikshaw.</li>
+              <li>Drive: <span class="t-highlight">10min</span></li>
+            </ul>
           </div>
-          <div class="info-card reach-card">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#516271" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 6v6M15 6v6M2 12h19.6M18 18H2a2 2 0 01-2-2V6a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2z"/><circle cx="5" cy="18" r="1"/><circle cx="15" cy="18" r="1"/>
-            </svg>
-            <span>By Bus</span>
+
+          <div class="info-card transport-card">
+            <div class="transport-header">
+              <span class="transport-icon">
+                <i data-lucide="bus" width="22" height="22"></i>
+              </span>
+              <h3 class="transport-title">By Bus</h3>
+            </div>
+            <ul class="transport-list">
+              <li>The nearest Bus stand is <span class="t-highlight">Ramanattukara Bus Stand</span>.</li>
+              <li>Distance: <span class="t-highlight">1.5 km</span></li>
+              <li>Recommended option: App-based taxi or local Autorikshaw.</li>
+              <li>Drive: <span class="t-highlight">4min</span></li>
+            </ul>
           </div>
+
         </div>
       </div>
 
       <!-- ── Photo Gallery ── -->
       <div class="card-section stagger-child">
-        <div class="info-card gallery-row">
-          <div class="gallery-icon-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-            </svg>
+        <h2 class="section-heading">Photo Gallery</h2>
+        <div class="info-card gallery-card">
+          <div class="gallery-card-top">
+            <span class="gallery-icon-wrap">
+              <i data-lucide="camera" width="22" height="22"></i>
+            </span>
+            <div class="gallery-card-text">
+              <h3>Kwikpic</h3>
+              <p>Get your own photos instantly using Face Recognition</p>
+            </div>
           </div>
-          <div class="gallery-text">
-            <h3>Photo Gallery</h3>
-            <p>View &amp; download your photos via Kwikpic</p>
+          <a href="https://kwikpic-in.app.link/oZqFRWqkk2b?groupCode=NUOSAZ" target="_blank" rel="noopener" class="gallery-join-btn">
+            <i data-lucide="smartphone" width="16" height="16"></i>
+            Join via Mobile App
+          </a>
+          <div class="gallery-join-links">
+            <a href="https://www.kwikpic.in/auth/login?uCode=NUOSAZ" target="_blank" rel="noopener" class="gallery-link-btn">
+              <i data-lucide="globe" width="14" height="14"></i>
+              Join via Website
+            </a>
           </div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#171717" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"/>
-          </svg>
+          <div class="gallery-code-row">
+            <span class="gallery-code-label">Group Code</span>
+            <span class="gallery-code">NUOSAZ</span>
+          </div>
         </div>
       </div>
 
@@ -316,6 +335,7 @@
     <source src="audio/nikah-nasheed.mp3" type="audio/mpeg" />
   </audio>
 
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="js/wedding.js"></script>
 </body>
 </html>
