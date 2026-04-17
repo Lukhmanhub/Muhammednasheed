@@ -7,7 +7,7 @@
   <title>Mohammed &amp; Henna | Wedding Invitation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Sora:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comforter&family=Poppins:wght@300;400;500;600&family=Sora:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/wedding.css" />
 </head>
 <body>
@@ -18,7 +18,7 @@
   <section id="splash" class="page">
 
     <div class="splash-bg">
-      <img src="https://www.figma.com/api/mcp/asset/422f8aab-5c8a-4510-bea5-65856468efad" alt="" aria-hidden="true" class="splash-bg-img" />
+      <img src="https://www.figma.com/api/mcp/asset/394a3279-5626-4e79-b9b3-1f48e676c404" alt="" aria-hidden="true" class="splash-bg-img" />
       <div class="splash-overlay"></div>
     </div>
 
@@ -31,48 +31,58 @@
       </span>
     </button>
 
-    <!-- Bismillah calligraphy -->
-    <div class="bismillah splash-enter" style="--delay:0.2s">
-      <img src="https://www.figma.com/api/mcp/asset/cf94f459-9ebb-4f91-b0bf-a9cb3fa5d3bd" alt="Bismillah ir-Rahman ir-Raheem" class="bismillah-img" />
+    <!-- Bismillah calligraphy — Figma y=80, w=104 -->
+    <div class="bismillah splash-enter" style="--delay:0.15s">
+      <img src="https://www.figma.com/api/mcp/asset/03da0005-fda9-4bc3-8def-7882ed3d5b63" alt="Bismillah ir-Rahman ir-Raheem" class="bismillah-img" />
     </div>
 
-    <!-- Couple names -->
-    <div class="hero-names splash-enter" style="--delay:0.5s">
-      <div class="name-block groom">
-        <span class="name-first">Mohammed</span>
-        <span class="name-last">Abdul Razak</span>
-      </div>
-      <div class="name-divider">
-        <img src="https://www.figma.com/api/mcp/asset/b6e877e5-7073-45b4-80ea-397ad686787a" alt="" class="divider-img" />
-      </div>
-      <div class="name-block bride">
-        <span class="name-first">Henna</span>
-        <span class="name-last">Shireen</span>
-      </div>
+    <!-- Malayalam title logo — Figma y=119, w=224, h=116 -->
+    <div class="splash-title-logo splash-enter" style="--delay:0.3s">
+      <img src="https://www.figma.com/api/mcp/asset/8ef81d27-e058-4fb7-8f3f-c1fc58aa9517" alt="" class="splash-title-img" />
     </div>
 
-    <!-- Countdown timer -->
+    <!-- Invite text — Figma y=268, Poppins 12px -->
+    <p class="splash-invite splash-enter" style="--delay:0.4s">
+      We cordially invite You to honor us with Your presence at the blessed occasion of our wedding
+    </p>
+
+    <!-- Groom name — Figma y=314, Astonia Regular ~40px -->
+    <div class="splash-groom splash-enter" style="--delay:0.5s">
+      <span>Mohammed</span>
+      <span>Abdul Razak</span>
+    </div>
+
+    <!-- "weds" badge — Figma y≈381, Comforter on pink bar -->
+    <div class="splash-weds-wrap splash-enter" style="--delay:0.6s">
+      <div class="splash-weds-bar"></div>
+      <span class="splash-weds">weds</span>
+    </div>
+
+    <!-- Bride name — Figma y=437, Astonia Regular ~40px -->
+    <p class="splash-bride splash-enter" style="--delay:0.65s">Henna Shireen</p>
+
+    <!-- Countdown timer — Figma y=526 -->
     <div class="countdown splash-enter" id="countdown" style="--delay:0.8s">
       <div class="count-unit">
         <span class="count-label">Days</span>
         <div class="count-box"><span id="cd-days">00</span></div>
       </div>
       <span class="count-sep">
-        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="white" opacity="0.7"/></svg>
+        <svg width="7" height="7" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="white" opacity="0.7"/></svg>
       </span>
       <div class="count-unit">
         <span class="count-label">Hours</span>
         <div class="count-box"><span id="cd-hours">00</span></div>
       </div>
       <span class="count-sep">
-        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="white" opacity="0.7"/></svg>
+        <svg width="7" height="7" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="white" opacity="0.7"/></svg>
       </span>
       <div class="count-unit">
         <span class="count-label">Minutes</span>
         <div class="count-box"><span id="cd-mins">00</span></div>
       </div>
       <span class="count-sep">
-        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="white" opacity="0.7"/></svg>
+        <svg width="7" height="7" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="white" opacity="0.7"/></svg>
       </span>
       <div class="count-unit">
         <span class="count-label">Seconds</span>
@@ -80,7 +90,7 @@
       </div>
     </div>
 
-    <!-- Date + venue -->
+    <!-- Date + venue — Figma y=646/666 -->
     <div class="event-meta splash-enter" style="--delay:1s">
       <p class="event-date">Wednesday, 20 May 2026</p>
       <p class="event-venue">Malabar avenue, Ramanatukara</p>
