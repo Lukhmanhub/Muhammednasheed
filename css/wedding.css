@@ -139,7 +139,7 @@ img { display: block; }
 
 /* ── Music Pill (top-right) ──────────────── */
 .music-pill {
-  top: calc(env(safe-area-inset-top, 54px) + 8px);
+  top: calc(max(env(safe-area-inset-top, 0px), 54px) + 8px);
   right: 16px;
   display: flex;
   align-items: center;
@@ -185,7 +185,7 @@ img { display: block; }
 /* ── Bismillah ───────────────────────────── */
 /*  Figma: y=80, w=104, h=27                   */
 .bismillah {
-  top: calc(env(safe-area-inset-top, 54px) + 26px); /* Figma y=80 */
+  top: calc(max(env(safe-area-inset-top, 0px), 54px) + 41px); /* Figma y=80 + 15 breathing */
   left: 50%;
   transform: translateX(-50%);
   width: 104px;
@@ -201,7 +201,7 @@ img { display: block; }
 /* ── Malayalam title logo ────────────────── */
 /*  Figma: y=119, w=224, h=116                 */
 .splash-title-logo {
-  top: calc(env(safe-area-inset-top, 54px) + 65px); /* Figma y=119 */
+  top: calc(max(env(safe-area-inset-top, 0px), 54px) + 80px); /* Figma y=119 + 15 */
   left: 50%;
   transform: translateX(-50%);
   width: 224px;
@@ -216,7 +216,7 @@ img { display: block; }
 /* ── Invite text ─────────────────────────── */
 /*  Figma: y=268, Poppins Regular 12px         */
 .splash-invite {
-  top: calc(env(safe-area-inset-top, 54px) + 214px); /* Figma y=268 */
+  top: calc(max(env(safe-area-inset-top, 0px), 54px) + 229px); /* Figma y=268 + 15 */
   left: 50%;
   transform: translateX(-50%);
   width: min(298px, calc(100% - 32px));
@@ -231,7 +231,7 @@ img { display: block; }
 /* ── Groom name ──────────────────────────── */
 /*  Figma: y=314, Astonia Regular ~40px        */
 .splash-groom {
-  top: calc(env(safe-area-inset-top, 54px) + 260px); /* Figma y=314 */
+  top: calc(max(env(safe-area-inset-top, 0px), 54px) + 275px); /* Figma y=314 + 15 */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -250,7 +250,7 @@ img { display: block; }
 /* ── "weds" badge ────────────────────────── */
 /*  Figma: y≈381, Comforter on pink bar        */
 .splash-weds-wrap {
-  top: calc(env(safe-area-inset-top, 54px) + 327px); /* Figma y=381 */
+  top: calc(max(env(safe-area-inset-top, 0px), 54px) + 342px); /* Figma y=381 + 15 */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -282,7 +282,7 @@ img { display: block; }
 /* ── Bride name ──────────────────────────── */
 /*  Figma: y=437, Astonia Regular ~40px        */
 .splash-bride {
-  top: calc(env(safe-area-inset-top, 54px) + 383px); /* Figma y=437 */
+  top: calc(max(env(safe-area-inset-top, 0px), 54px) + 398px); /* Figma y=437 + 15 */
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-astonia);
@@ -298,7 +298,7 @@ img { display: block; }
 /* ── Countdown ───────────────────────────── */
 /*  Figma: y=526                               */
 .countdown {
-  top: calc(env(safe-area-inset-top, 54px) + 472px); /* Figma y=526 */
+  top: calc(max(env(safe-area-inset-top, 0px), 54px) + 487px); /* Figma y=526 + 15 */
   left: 0; right: 0;
   display: flex;
   align-items: flex-end;
@@ -364,7 +364,7 @@ img { display: block; }
 /* ── Event Date / Venue ──────────────────── */
 /*  Figma: y=646 (date), y=666 (venue)         */
 .event-meta {
-  top: calc(env(safe-area-inset-top, 54px) + 592px); /* Figma y=646 */
+  top: calc(max(env(safe-area-inset-top, 0px), 54px) + 607px); /* Figma y=646 + 15 */
   left: 0; right: 0;
   text-align: center;
   padding: 0 24px;
@@ -550,7 +550,7 @@ img { display: block; }
 /* Music pill on details page */
 .music-pill-details {
   position: absolute;
-  top: calc(env(safe-area-inset-top, 54px) + 8px);
+  top: calc(max(env(safe-area-inset-top, 0px), 54px) + 8px);
   right: 16px;
   z-index: 10;
 }
