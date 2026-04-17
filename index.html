@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#f5c6e8" />
+  <title>Mohammed &amp; Henna | Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Sora:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/wedding.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       PAGE 1 — SPLASH / HERO
+  ═══════════════════════════════════════ -->
+  <section id="splash" class="page">
+
+    <div class="splash-bg">
+      <img src="https://www.figma.com/api/mcp/asset/422f8aab-5c8a-4510-bea5-65856468efad" alt="" aria-hidden="true" class="splash-bg-img" />
+      <div class="splash-overlay"></div>
+    </div>
+
+    <!-- Music pill (top-right) -->
+    <button class="music-pill" id="musicPill" aria-label="Play Nikkah Nasheed">
+      <span class="music-pill-label">Nikkah nasheed</span>
+      <span class="music-pill-btn">
+        <!-- shown when NOT playing -->
+        <svg class="mp-icon icon-play" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+        </svg>
+        <!-- shown when playing -->
+        <svg class="mp-icon icon-pause" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+        </svg>
+      </span>
+    </button>
+
+    <!-- Bismillah calligraphy -->
+    <div class="bismillah splash-enter" style="--delay:0.2s">
+      <img src="https://www.figma.com/api/mcp/asset/cf94f459-9ebb-4f91-b0bf-a9cb3fa5d3bd" alt="Bismillah ir-Rahman ir-Raheem" class="bismillah-img" />
+    </div>
+
+    <!-- Couple names -->
+    <div class="hero-names splash-enter" style="--delay:0.5s">
+      <div class="name-block groom">
+        <span class="name-first">Mohammed</span>
+        <span class="name-last">Abdul Razak</span>
+      </div>
+      <div class="name-divider">
+        <img src="https://www.figma.com/api/mcp/asset/b6e877e5-7073-45b4-80ea-397ad686787a" alt="" class="divider-img" />
+      </div>
+      <div class="name-block bride">
+        <span class="name-first">Henna</span>
+        <span class="name-last">Shireen</span>
+      </div>
+    </div>
+
+    <!-- Countdown timer -->
+    <div class="countdown splash-enter" id="countdown" style="--delay:0.8s">
+      <div class="count-unit">
+        <span class="count-label">Days</span>
+        <div class="count-box"><span id="cd-days">00</span></div>
+      </div>
+      <span class="count-sep">
+        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="white" opacity="0.7"/></svg>
+      </span>
+      <div class="count-unit">
+        <span class="count-label">Hours</span>
+        <div class="count-box"><span id="cd-hours">00</span></div>
+      </div>
+      <span class="count-sep">
+        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="white" opacity="0.7"/></svg>
+      </span>
+      <div class="count-unit">
+        <span class="count-label">Minutes</span>
+        <div class="count-box"><span id="cd-mins">00</span></div>
+      </div>
+      <span class="count-sep">
+        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="white" opacity="0.7"/></svg>
+      </span>
+      <div class="count-unit">
+        <span class="count-label">Seconds</span>
+        <div class="count-box"><span id="cd-secs">00</span></div>
+      </div>
+    </div>
+
+    <!-- Date + venue -->
+    <div class="event-meta splash-enter" style="--delay:1s">
+      <p class="event-date">Wednesday, 20 May 2026</p>
+      <p class="event-venue">Malabar avenue, Ramanatukara</p>
+    </div>
+
+    <!-- Swipe CTA -->
+    <div class="swipe-wrap splash-enter" style="--delay:1.2s">
+      <div class="swipe-track" id="swipeTrack" role="button" aria-label="Swipe right to confirm attendance">
+        <div class="swipe-thumb" id="swipeThumb">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#780269" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </div>
+        <span class="swipe-label" id="swipeLabel">Yeah, I am attending</span>
+        <div class="swipe-fill" id="swipeFill"></div>
+      </div>
+    </div>
+
+    <!-- Floating petals -->
+    <div class="petals" aria-hidden="true">
+      <span class="petal" style="--x:10%;--delay:0s;--dur:6s"></span>
+      <span class="petal" style="--x:25%;--delay:1.5s;--dur:7s"></span>
+      <span class="petal" style="--x:50%;--delay:0.8s;--dur:8s"></span>
+      <span class="petal" style="--x:70%;--delay:2s;--dur:5.5s"></span>
+      <span class="petal" style="--x:85%;--delay:0.3s;--dur:7.5s"></span>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PAGE 2 — DETAILS
+  ═══════════════════════════════════════ -->
+  <section id="details" class="page page-details" aria-hidden="true">
+
+    <!-- Hero top -->
+    <div class="details-hero">
+      <img src="https://www.figma.com/api/mcp/asset/f39c2e11-e8d2-433a-942a-11c70dea57ce" alt="" aria-hidden="true" class="details-hero-bg" />
+      <div class="details-hero-overlay"></div>
+
+      <!-- Music pill -->
+      <button class="music-pill music-pill-details" id="musicPillDetails" aria-label="Toggle music">
+        <span class="music-pill-label">Nikkah nasheed</span>
+        <span class="music-pill-btn">
+          <svg class="mp-icon icon-play" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+          </svg>
+          <svg class="mp-icon icon-pause" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+          </svg>
+        </span>
+      </button>
+
+      <!-- Left: Mohammed + Abdul Razak — Figma x=39, y=98 -->
+      <div class="dh-name-left">
+        <span class="dhn-first">Mohammed</span>
+        <span class="dhn-last">Abdul Razak</span>
+      </div>
+
+      <!-- Ampersand — Figma x=203, y=142, Bold Italic -->
+      <span class="dh-amp">&amp;</span>
+
+      <!-- Right: Henna + Shireen — Figma x=259, y=142 -->
+      <div class="dh-name-right">
+        <span class="dhn-first">Henna</span>
+        <span class="dhn-last">Shireen</span>
+      </div>
+
+      <!-- Divider ornament — Figma x=109, y=222, w=175 -->
+      <img src="https://www.figma.com/api/mcp/asset/b04a4fae-4236-418c-9201-a5b7d1660270" alt="" class="dh-divider" />
+    </div>
+
+    <!-- Scrollable content card -->
+    <div class="details-sheet">
+
+      <!-- Mark the date pill -->
+      <div class="date-row">
+        <span class="date-row-text">Wednesday, May 20, 2026</span>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mohammed+%26+Henna+Wedding&dates=20260520T120000Z/20260520T150000Z&details=Nikah+ceremony&location=Malabar+Avenue+Auditorium,+Ramanattukara" target="_blank" class="mark-date-btn" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          Mark the date
+        </a>
+      </div>
+
+      <!-- ── Venue ── -->
+      <div class="card-section stagger-child">
+        <h2 class="section-heading">Venue</h2>
+        <div class="info-card">
+          <div class="venue-body">
+            <div class="venue-text">
+              <h3 class="venue-name">Malabar Avenue Auditorium</h3>
+              <p class="venue-addr">Ramanattukara, Kozhikode<br>Kerala, India</p>
+              <div class="venue-time">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#516271" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>5:30 PM – 8:30 PM · Wed, 20 May 2026</span>
+              </div>
+            </div>
+            <a href="https://maps.google.com/?q=Malabar+Avenue+Auditorium+Ramanattukara+Kozhikode" target="_blank" rel="noopener" class="directions-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                <circle cx="12" cy="9" r="2.5"/>
+              </svg>
+              Get Directions
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── For Enquiry ── -->
+      <div class="card-section stagger-child">
+        <h2 class="section-heading">For Enquiry</h2>
+
+        <div class="info-card contact-full">
+          <div class="contact-meta">
+            <h3 class="contact-name">Ramsheer EP</h3>
+            <p class="contact-role">Brother-in-law</p>
+            <a href="tel:+918606805836" class="contact-phone">+91 8606 805 836</a>
+          </div>
+          <a href="tel:+918606805836" class="phone-btn primary" aria-label="Call Ramsheer EP">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="contact-grid">
+          <div class="info-card contact-center">
+            <h3 class="contact-name">Lukhman</h3>
+            <p class="contact-role">Groom's Brother</p>
+            <a href="tel:+919633906454" class="contact-phone">+91 9633 906 454</a>
+            <a href="tel:+919633906454" class="phone-btn outline" aria-label="Call Lukhman">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="info-card contact-center">
+            <h3 class="contact-name">Abdul Razak P</h3>
+            <p class="contact-role">Groom's Father</p>
+            <a href="tel:+919747135657" class="contact-phone">+91 9747 135 657</a>
+            <a href="tel:+919747135657" class="phone-btn outline" aria-label="Call Abdul Razak P">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── How to Reach ── -->
+      <div class="card-section stagger-child">
+        <h2 class="section-heading">How to Reach</h2>
+        <div class="reach-grid">
+          <div class="info-card reach-card">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#516271" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19 4s-3.5 1-4.5 2.5L11 9.2 2.8 7.4l-1.5 1.5L8 12l-2 2H4l-1 1 3 2 2 3 1-1v-2l2-2 3.5 6.7z"/>
+            </svg>
+            <span>By Airplane</span>
+          </div>
+          <div class="info-card reach-card">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#516271" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="3" width="16" height="16" rx="2"/><line x1="12" y1="3" x2="12" y2="19"/><line x1="4" y1="11" x2="20" y2="11"/><path d="M8 19l-2 2M16 19l2 2"/>
+            </svg>
+            <span>By Train</span>
+          </div>
+          <div class="info-card reach-card">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#516271" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 6v6M15 6v6M2 12h19.6M18 18H2a2 2 0 01-2-2V6a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2z"/><circle cx="5" cy="18" r="1"/><circle cx="15" cy="18" r="1"/>
+            </svg>
+            <span>By Bus</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Photo Gallery ── -->
+      <div class="card-section stagger-child">
+        <div class="info-card gallery-row">
+          <div class="gallery-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+            </svg>
+          </div>
+          <div class="gallery-text">
+            <h3>Photo Gallery</h3>
+            <p>View &amp; download your photos via Kwikpic</p>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#171717" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- ── Downloads ── -->
+      <div class="card-section stagger-child">
+        <h2 class="section-heading">Downloads</h2>
+        <div class="download-grid">
+          <div class="info-card download-card">
+            <div class="download-preview">
+              <img src="https://www.figma.com/api/mcp/asset/763e9b6c-4fa6-4911-9538-055add002904" alt="Wedding card preview" class="download-thumb" />
+            </div>
+            <p class="download-label">Wedding card</p>
+            <button class="download-btn">Download card</button>
+          </div>
+          <div class="info-card download-card">
+            <div class="download-preview">
+              <img src="https://www.figma.com/api/mcp/asset/763e9b6c-4fa6-4911-9538-055add002904" alt="Save the date video preview" class="download-thumb" />
+            </div>
+            <p class="download-label">Save the date video</p>
+            <button class="download-btn disabled" disabled>Coming soon...</button>
+          </div>
+        </div>
+      </div>
+
+      <footer class="wedding-footer">
+        <p>With love &amp; prayers</p>
+        <p class="footer-names">Mohammed &amp; Henna</p>
+      </footer>
+
+    </div><!-- /details-sheet -->
+  </section>
+
+  <!-- Background music — place the MP3 at wedding/audio/nikah-nasheed.mp3 -->
+  <audio id="bgMusic" loop preload="none">
+    <source src="audio/nikah-nasheed.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="js/wedding.js"></script>
+</body>
+</html>

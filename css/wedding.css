@@ -1,0 +1,761 @@
+/* ══════════════════════════════════════════
+   WEDDING WEBSITE — STYLES
+   Mohammed Abdul Razak & Henna Shireen
+   20 May 2026 · Malabar Avenue Auditorium
+══════════════════════════════════════════ */
+
+/* ── Apple Garamond (local font files) ───── */
+@font-face {
+  font-family: 'AppleGaramond';
+  src: url('../fonts/AppleGaramond-Light.ttf') format('truetype');
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'AppleGaramond';
+  src: url('../fonts/AppleGaramond-LightItalic.ttf') format('truetype');
+  font-weight: 300; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'AppleGaramond';
+  src: url('../fonts/AppleGaramond.ttf') format('truetype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'AppleGaramond';
+  src: url('../fonts/AppleGaramond-Italic.ttf') format('truetype');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'AppleGaramond';
+  src: url('../fonts/AppleGaramond-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'AppleGaramond';
+  src: url('../fonts/AppleGaramond-BoldItalic.ttf') format('truetype');
+  font-weight: 700; font-style: italic; font-display: swap;
+}
+
+/* ── Design Tokens ───────────────────────── */
+:root {
+  --primary:      #780269;
+  --primary-dark: #5a0050;
+  --pink-light:   #ed94d5;
+  --pink-dark:    #fc72d7;
+  --text-dark:    #171717;
+  --text-body:    #516271;
+  --card-bg:      #f6f6f6;
+  --border:       #e3e3e3;
+
+  --font-serif:   'AppleGaramond', 'Apple Garamond', 'Cormorant Garamond', Garamond, Georgia, serif;
+  --font-sans:    'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --radius-sm:    6px;
+  --radius-md:    12px;
+  --radius-pill:  999px;
+
+  --shadow-float: 0 18px 32px rgba(82,0,72,0.28);
+  --ease-ios:     cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* ── Reset ───────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%; height: 100dvh;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  background: #e8b4df;
+}
+a { text-decoration: none; color: inherit; }
+button { border: none; background: none; cursor: pointer; font-family: inherit; }
+img { display: block; }
+
+/* ════════════════════════════════════════════
+   PAGE STACK
+════════════════════════════════════════════ */
+.page {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+}
+
+/* Details starts off-screen below */
+#details {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  transform: translateY(100%);
+  transition: transform 0.9s var(--ease-ios);
+}
+#details.revealed { transform: translateY(0); }
+#details::-webkit-scrollbar { width: 0; }
+
+/* ════════════════════════════════════════════
+   SPLASH PAGE — ABSOLUTE LAYOUT
+   Pixel positions match Figma frame (393×862)
+════════════════════════════════════════════ */
+#splash { display: block; overflow: hidden; }
+
+/* ── Background ──────────────────────────── */
+.splash-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.splash-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.splash-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(220,130,210,0.06) 0%,
+    rgba(220,130,210,0.04) 60%,
+    rgba(200,100,190,0.12) 100%);
+}
+
+/* ── Z-layer for all content ─────────────── */
+#splash > *:not(.splash-bg):not(.petals) {
+  position: absolute;
+  z-index: 2;
+}
+
+/* ── Music Pill (top-right) ──────────────── */
+.music-pill {
+  top: calc(env(safe-area-inset-top, 54px) + 8px);
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 6px 5px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  transition: background 0.25s;
+}
+.music-pill:active { background: rgba(255,255,255,0.22); }
+.music-pill-label {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.music-pill-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 0.75px solid rgba(255,255,255,0.85);
+  flex-shrink: 0;
+}
+/* Icon toggle */
+.music-pill .icon-play   { display: block; }
+.music-pill .icon-pause  { display: none; }
+.music-pill.playing .icon-play   { display: none; }
+.music-pill.playing .icon-pause  { display: block; animation: breathe 2s ease-in-out infinite; }
+
+@keyframes breathe {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+
+/* ── Bismillah ───────────────────────────── */
+/*  Figma: x=133, y=119, w=128, h=34           */
+.bismillah {
+  top: calc(env(safe-area-inset-top, 54px) + 65px); /* ≈119px */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 128px;
+  height: 34px;
+}
+.bismillah-img {
+  width: 128px;
+  height: 34px;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* ── Couple Names ────────────────────────── */
+/*  Figma: frame x=57, y=165, w=280, h=257     */
+.hero-names {
+  top: calc(env(safe-area-inset-top, 54px) + 112px); /* ≈165px */
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(280px, calc(100% - 32px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  color: #fff;
+  text-align: center;
+  line-height: 1.05;
+}
+/* Figma: Mohammed = 64.26px, Abdul Razak = 47.99px, Apple Garamond Light */
+.name-first { font-size: clamp(50px, 16.3vw, 64px); letter-spacing: -0.025em; white-space: nowrap; }
+.name-last  { font-size: clamp(38px, 12.2vw, 48px); letter-spacing: -0.02em;  white-space: nowrap; }
+
+/* Figma: divider ornament w=240, h=13.77 */
+.name-divider {
+  width: 240px;
+  height: 14px;
+  margin: 2px 0;
+  flex-shrink: 0;
+}
+.divider-img {
+  width: 240px;
+  height: 14px;
+  object-fit: contain;
+}
+
+/* ── Countdown ───────────────────────────── */
+/*  Figma: x=43, y=449, w=308, h=121          */
+.countdown {
+  top: calc(env(safe-area-inset-top, 54px) + 394px); /* ≈449px */
+  left: 0; right: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 5px;
+}
+
+.count-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.count-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0;
+  line-height: 1;
+}
+/* Figma: box 68×94, gradient pink, border white */
+.count-box {
+  width: 68px;
+  height: 90px;
+  border-radius: 7px;
+  border: 1px solid rgba(255,255,255,0.8);
+  background: linear-gradient(180deg, var(--pink-light) 0%, var(--pink-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(200,60,160,0.35);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.count-box::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 50% 0;
+  background: rgba(255,255,255,0.18);
+  pointer-events: none;
+}
+/* Figma: Sora SemiBold 32px */
+.count-box span {
+  font-family: 'Sora', var(--font-sans);
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.03em;
+  position: relative;
+  z-index: 1;
+}
+.count-sep {
+  display: flex;
+  align-items: center;
+  padding-bottom: 40px;
+  color: rgba(255,255,255,0.65);
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ── Event Date / Venue ──────────────────── */
+/*  Figma: y=600 (date), y=628 (venue)         */
+.event-meta {
+  top: calc(env(safe-area-inset-top, 54px) + 545px); /* ≈600px */
+  left: 0; right: 0;
+  text-align: center;
+  padding: 0 24px;
+}
+/* Figma: Apple Garamond Light 22.06px, color #780269 */
+.event-date,
+.event-venue {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+/* ── Swipe CTA ───────────────────────────── */
+/*  Figma: centered, y=698, w=296, h=78        */
+.swipe-wrap {
+  bottom: calc(env(safe-area-inset-bottom, 34px) + 50px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(296px, calc(100% - 48px));
+}
+.swipe-track {
+  position: relative;
+  width: 100%;
+  height: 78px;
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-float);
+  border: 1px solid rgba(255,255,255,0.28);
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+.swipe-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg,
+    rgba(120,2,105,0.35),
+    rgba(252,114,215,0.25));
+  width: 0;
+}
+.swipe-thumb {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  cursor: grab;
+  will-change: transform;
+}
+.swipe-thumb:active { cursor: grabbing; }
+.swipe-thumb svg { pointer-events: none; }
+.swipe-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 80px;
+  padding-right: 12px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--primary);
+  pointer-events: none;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: opacity 0.12s;
+}
+/* Done state */
+.swipe-track.done { background: rgba(120,2,105,0.2); }
+.swipe-track.done .swipe-thumb { background: var(--primary); }
+.swipe-track.done .swipe-thumb svg { stroke: #fff; }
+.swipe-track.done .swipe-label { color: #fff; padding-left: 0; font-weight: 500; }
+
+/* ── Petals ──────────────────────────────── */
+.petals {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+.petal {
+  position: absolute;
+  left: var(--x);
+  top: -24px;
+  width: 9px;
+  height: 13px;
+  background: radial-gradient(ellipse,
+    rgba(255,210,235,0.75),
+    rgba(240,140,200,0.35));
+  border-radius: 50% 0 50% 0;
+  animation: petalFall var(--dur) linear var(--delay) infinite;
+}
+@keyframes petalFall {
+  0%   { transform: translateY(0) rotate(0deg);    opacity: 0; }
+  8%   { opacity: 0.75; }
+  90%  { opacity: 0.45; }
+  100% { transform: translateY(105vh) rotate(380deg); opacity: 0; }
+}
+
+/* ── Entrance animations ─────────────────── */
+/* Uses `translate` (individual property) so it composes with
+   `transform: translateX(-50%)` centering without conflict   */
+.splash-enter {
+  opacity: 0;
+  animation: splashFadeIn 0.75s ease var(--delay, 0s) forwards;
+}
+@keyframes splashFadeIn {
+  from { opacity: 0; translate: 0 14px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+/* mp-icon: hide/show via play/pause toggle */
+.mp-icon { display: block; }
+
+/* Splash exit */
+#splash.exit {
+  pointer-events: none;
+  animation: splashExit 0.9s var(--ease-ios) forwards;
+}
+@keyframes splashExit {
+  to { opacity: 0.2; transform: scale(0.95); }
+}
+
+/* Count flip */
+.count-box span.flip {
+  animation: countFlip 0.3s ease;
+}
+@keyframes countFlip {
+  0%  { transform: scaleY(1); }
+  45% { transform: scaleY(0); opacity: 0; }
+  55% { transform: scaleY(0); opacity: 0; }
+  100%{ transform: scaleY(1); opacity: 1; }
+}
+
+/* ════════════════════════════════════════════
+   DETAILS PAGE
+════════════════════════════════════════════ */
+#details { background: #fff; }
+
+/* ── Hero header ─────────────────────────── */
+.details-hero {
+  position: relative;
+  width: 100%;
+  height: 290px; /* Figma: scrollable content starts at y=289 */
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.details-hero-bg {
+  position: absolute;
+  left: 0; right: 0;
+  top: -25%;
+  width: 100%;
+  height: 125%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+.details-hero-overlay {
+  position: absolute;
+  inset: 0;
+  /* subtle tint, no white fade — white section starts via details-sheet */
+  background: linear-gradient(180deg,
+    rgba(180,80,160,0.06) 0%,
+    rgba(180,80,160,0.03) 100%);
+}
+
+/* Music pill on details page */
+.music-pill-details {
+  position: absolute;
+  top: calc(env(safe-area-inset-top, 54px) + 8px);
+  right: 16px;
+  z-index: 10;
+}
+
+/* ── Details hero names — Figma absolute coords (393px frame) ── */
+/* Left block: Mohammed + Abdul Razak  ·  Figma x=39, y=98       */
+.dh-name-left {
+  position: absolute;
+  left: 39px;
+  top: 98px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.05;
+  z-index: 2;
+}
+/* Ampersand  ·  Figma x=203, y=142, h=57, Bold Italic           */
+.dh-amp {
+  position: absolute;
+  left: 203px;
+  top: 138px;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 55px;
+  color: var(--primary);
+  line-height: 1.05;
+  z-index: 2;
+}
+/* Right block: Henna + Shireen  ·  Figma x=259, y=142           */
+.dh-name-right {
+  position: absolute;
+  left: 259px;
+  top: 142px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.05;
+  z-index: 2;
+}
+/* Figma: Mohammed/Henna h=44 → ~38px; AbdulRazak/Shireen h=33 → ~28px */
+.dhn-first { font-size: 38px; letter-spacing: -0.025em; white-space: nowrap; }
+.dhn-last  { font-size: 28px; letter-spacing: -0.02em;  white-space: nowrap; }
+
+/* Divider ornament  ·  Figma x=109, y=222, w=175                */
+.dh-divider {
+  position: absolute;
+  left: 109px;
+  top: 222px;
+  width: 175px;
+  height: 10px;
+  object-fit: contain;
+  opacity: 0.65;
+  filter: saturate(0) brightness(0.5);
+  z-index: 2;
+}
+
+/* ── White scrollable sheet ──────────────── */
+.details-sheet {
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  margin-top: -35px; /* overlap 35px into hero → date card sits on gradient bg */
+  padding: 0 16px calc(env(safe-area-inset-bottom, 24px) + 48px);
+  min-height: calc(100dvh - 255px);
+}
+
+/* ── Date row — floating card over hero gradient ── */
+.date-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  margin: 10px 0 16px;
+  background: rgba(255,255,255,0.97);
+  border: 0.75px solid rgba(162, 95, 153, 0.25);
+  border-radius: 16px; /* all 4 corners — standalone floating card */
+  box-shadow: 0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(120,2,105,0.07);
+  position: relative;
+  z-index: 5;
+}
+.date-row-text {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-dark);
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  flex: 1;
+}
+.mark-date-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: var(--radius-pill);
+  background: var(--primary);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.mark-date-btn:active { background: var(--primary-dark); transform: scale(0.97); }
+
+/* ── Section heading ─────────────────────── */
+.card-section { margin-top: 22px; }
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+/* ── Base info card ──────────────────────── */
+.info-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+}
+
+/* ── Venue card ──────────────────────────── */
+.venue-body { display: flex; flex-direction: column; gap: 16px; }
+.venue-text { display: flex; flex-direction: column; gap: 8px; }
+.venue-name {
+  font-family: var(--font-serif);
+  font-size: 22px; font-weight: 400;
+  color: var(--text-dark);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+.venue-addr {
+  font-size: 12px; color: var(--text-body); line-height: 1.5;
+}
+.venue-time {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--text-dark);
+}
+.directions-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  align-self: flex-start;
+  padding: 9px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-size: 11px; font-weight: 400;
+  transition: background 0.2s, color 0.2s;
+}
+.directions-btn:active { background: var(--primary); color: #fff; }
+
+/* ── Contact cards ───────────────────────── */
+.contact-full {
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 16px;
+  margin-bottom: 12px;
+}
+.contact-meta { display: flex; flex-direction: column; gap: 4px; }
+.contact-name {
+  font-family: var(--font-serif);
+  font-size: 22px; font-weight: 400;
+  color: var(--text-dark); letter-spacing: -0.025em; line-height: 1.1;
+}
+.contact-role { font-size: 12px; color: var(--text-body); }
+.contact-phone { font-size: 12px; color: var(--primary); font-weight: 400; }
+.phone-btn {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: transform 0.2s;
+}
+.phone-btn:active { transform: scale(0.93); }
+.phone-btn.primary { background: var(--primary); color: #fff; }
+.phone-btn.outline { border: 1px solid var(--primary); color: var(--primary); }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.contact-center {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: 4px; padding: 18px 12px 14px;
+}
+.contact-center .contact-name { font-size: 18px; }
+.contact-center .phone-btn { margin-top: 10px; }
+
+/* ── How to Reach ────────────────────────── */
+.reach-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.reach-card {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 8px; padding: 18px 10px 14px; text-align: center;
+}
+.reach-card span { font-size: 12px; color: var(--text-body); }
+
+/* ── Gallery row ─────────────────────────── */
+.gallery-row {
+  display: flex; align-items: center; gap: 14px;
+  cursor: pointer; transition: background 0.2s;
+}
+.gallery-row:active { background: #efefef; }
+.gallery-icon-wrap {
+  width: 48px; height: 48px; border-radius: 8px;
+  background: var(--primary);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.gallery-text { flex: 1; }
+.gallery-text h3 {
+  font-family: var(--font-serif);
+  font-size: 20px; font-weight: 400; color: var(--text-dark);
+  letter-spacing: -0.02em; line-height: 1.1;
+}
+.gallery-text p { font-size: 12px; color: var(--text-body); margin-top: 4px; line-height: 1.4; }
+
+/* ── Downloads ───────────────────────────── */
+.download-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.download-card {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 10px; align-items: center;
+}
+.download-preview {
+  width: 100%; height: 130px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.download-thumb { width: 100%; height: 100%; object-fit: cover; }
+.download-label { font-size: 12px; color: var(--text-body); width: 100%; }
+.download-btn {
+  width: 100%; padding: 10px 12px; border-radius: var(--radius-pill);
+  background: var(--primary); color: #fff;
+  font-size: 13px; font-weight: 400; border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.download-btn:active { background: var(--primary-dark); transform: scale(0.97); }
+.download-btn.disabled {
+  background: rgba(120,2,105,0.2);
+  cursor: not-allowed; transform: none;
+}
+
+/* ── Stagger scroll animations ───────────── */
+.stagger-child {
+  opacity: 0; transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.25,0.8,0.25,1);
+}
+.stagger-child.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Footer ──────────────────────────────── */
+.wedding-footer { margin-top: 44px; text-align: center; padding-bottom: 12px; }
+.wedding-footer p { font-size: 13px; color: var(--text-body); }
+.footer-names {
+  font-family: var(--font-serif);
+  font-size: 20px !important; font-style: italic;
+  color: var(--primary) !important; margin-top: 6px;
+}
+
+/* ════════════════════════════════════════════
+   DESKTOP — CENTERED PHONE FRAME
+════════════════════════════════════════════ */
+@media (min-width: 620px) {
+  html, body { background: #1a1a1a; }
+  .page {
+    left: 50% !important; right: auto !important;
+    width: 393px !important;
+    box-shadow: 0 0 80px rgba(0,0,0,0.6);
+    border-radius: 44px;
+    overflow: hidden;
+    transform: translateX(-50%) !important;
+  }
+  #details.revealed { transform: translateX(-50%) translateY(0) !important; }
+  #details:not(.revealed) { transform: translateX(-50%) translateY(100%) !important; }
+}
