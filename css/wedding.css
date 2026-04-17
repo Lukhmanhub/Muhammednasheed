@@ -525,7 +525,7 @@ img { display: block; }
 .details-hero {
   position: relative;
   width: 100%;
-  height: 480px;
+  height: 350px;
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -560,13 +560,13 @@ img { display: block; }
 .dh-groom {
   position: absolute;
   left: 50%;
-  top: 110px;
+  top: 85px;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: var(--font-astonia);
-  font-size: clamp(44px, 13.2vw, 52px);
+  font-size: clamp(26px, 8.6vw, 34px);
   font-weight: 400;
   color: #fff;
   text-align: center;
@@ -579,19 +579,19 @@ img { display: block; }
 .dh-weds-wrap {
   position: absolute;
   left: 50%;
-  top: 225px;
+  top: 160px;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 130px;
-  height: 64px;
+  width: 110px;
+  height: 50px;
   z-index: 3;
 }
 .dh-weds-bar {
   position: absolute;
-  width: 80px;
-  height: 28px;
+  width: 68px;
+  height: 22px;
   background: #f900a3;
   border-radius: 3px;
   transform: rotate(-21deg);
@@ -599,7 +599,7 @@ img { display: block; }
 .dh-weds {
   position: relative;
   font-family: var(--font-comforter);
-  font-size: clamp(38px, 11.2vw, 44px);
+  font-size: clamp(26px, 9.7vw, 38px);
   color: #fff;
   transform: rotate(-25deg);
   line-height: 1;
@@ -611,10 +611,10 @@ img { display: block; }
 .dh-bride {
   position: absolute;
   left: 50%;
-  top: 283px;
+  top: 203px;
   transform: translateX(-50%);
   font-family: var(--font-astonia);
-  font-size: clamp(44px, 13.2vw, 52px);
+  font-size: clamp(26px, 8.6vw, 34px);
   font-weight: 400;
   color: #fff;
   text-align: center;
@@ -627,12 +627,12 @@ img { display: block; }
 .dh-divider-row {
   position: absolute;
   left: 50%;
-  top: 390px;
+  top: 263px;
   transform: translateX(-50%);
-  width: min(270px, calc(100% - 80px));
+  width: min(220px, calc(100% - 100px));
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   z-index: 2;
 }
 .dh-divider-line {
@@ -651,9 +651,9 @@ img { display: block; }
 .details-sheet {
   background: #fff;
   border-radius: 24px 24px 0 0;
-  margin-top: -45px;
+  margin-top: -40px;
   padding: 0 16px calc(env(safe-area-inset-bottom, 24px) + 48px);
-  min-height: calc(100dvh - 435px);
+  min-height: calc(100dvh - 310px);
 }
 
 /* ── Date row — floating card over hero gradient ── */
