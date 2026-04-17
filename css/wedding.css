@@ -115,6 +115,8 @@ img { display: block; }
   position: absolute;
   inset: 0;
   z-index: 0;
+  /* Gradient fallback if image fails to load */
+  background: linear-gradient(160deg, #f5d5ef 0%, #e080cc 30%, #b840a8 60%, #780269 100%);
 }
 .splash-bg-img {
   width: 100%;
@@ -525,9 +527,11 @@ img { display: block; }
 .details-hero {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 320px;
   overflow: hidden;
   flex-shrink: 0;
+  /* Gradient fallback if image fails to load */
+  background: linear-gradient(160deg, #d490c4 0%, #a03898 50%, #780269 100%);
 }
 .details-hero-bg {
   position: absolute;
@@ -627,7 +631,7 @@ img { display: block; }
 .dh-divider-row {
   position: absolute;
   left: 50%;
-  top: 286px;
+  top: 268px;
   transform: translateX(-50%);
   width: min(220px, calc(100% - 100px));
   display: flex;
@@ -653,7 +657,7 @@ img { display: block; }
   border-radius: 24px 24px 0 0;
   margin-top: -40px;
   padding: 0 16px calc(env(safe-area-inset-bottom, 24px) + 48px);
-  min-height: calc(100dvh - 310px);
+  min-height: calc(100dvh - 280px);
 }
 
 /* ── Date row — floating card over hero gradient ── */
@@ -893,6 +897,71 @@ img { display: block; }
   font-family: var(--font-serif);
   font-size: 20px !important; font-style: italic;
   color: var(--primary) !important; margin-top: 6px;
+}
+
+/* ════════════════════════════════════════════
+   RESPONSIVE — COMPACT HEIGHTS (≤820px)
+   Fixes swipe-CTA / countdown overlap on
+   iPhone mini, 13 mini, small Androids
+════════════════════════════════════════════ */
+@media (max-height: 820px) {
+  /* Scale names down so bride's bottom edge sits higher */
+  .splash-groom, .splash-bride { font-size: clamp(26px, 7.7vw, 30px); }
+  .splash-weds  { font-size: clamp(28px, 8.9vw, 32px); }
+
+  /* Shrink countdown boxes */
+  .count-box       { width: 54px; height: 70px; }
+  .count-box span  { font-size: 24px; }
+  .count-label     { font-size: 12px; }
+  .count-sep       { padding-bottom: 28px; }
+
+  /* Bottom-anchor timer, date, and swipe — they never overlap regardless of height */
+  .swipe-wrap {
+    bottom: calc(max(env(safe-area-inset-bottom, 0px), 20px) + 16px);
+  }
+  .event-meta {
+    top: auto;
+    bottom: calc(max(env(safe-area-inset-bottom, 0px), 20px) + 96px);
+    /* = 16px gap + 68px swipe + 12px gap  = 96 */
+  }
+  .countdown {
+    top: auto;
+    bottom: calc(max(env(safe-area-inset-bottom, 0px), 20px) + 148px);
+    /* = 96px + 36px meta + 16px gap = 148 */
+  }
+
+  /* Shrink swipe track */
+  .swipe-track  { height: 68px; }
+  .swipe-thumb  { width: 54px; height: 54px; }
+  .swipe-label  { padding-left: 70px; font-size: 13px; }
+  .swipe-track.done .swipe-label { padding-left: 0; }
+}
+
+/* ════════════════════════════════════════════
+   RESPONSIVE — TINY SCREENS (≤700px, e.g. SE)
+════════════════════════════════════════════ */
+@media (max-height: 700px) {
+  /* Compress the names block upward to give countdown room */
+  .splash-invite {
+    top: calc(max(env(safe-area-inset-top, 0px), 44px) + 210px);
+    font-size: 10px;
+  }
+  .splash-groom {
+    top: calc(max(env(safe-area-inset-top, 0px), 44px) + 238px);
+    font-size: clamp(22px, 6.5vw, 24px);
+  }
+  .splash-weds-wrap {
+    top: calc(max(env(safe-area-inset-top, 0px), 44px) + 284px);
+    width: 100px; height: 48px;
+  }
+  .splash-bride {
+    top: calc(max(env(safe-area-inset-top, 0px), 44px) + 330px);
+    font-size: clamp(22px, 6.5vw, 24px);
+  }
+  /* Give countdown a touch more clearance on SE */
+  .countdown {
+    bottom: calc(max(env(safe-area-inset-bottom, 0px), 16px) + 152px);
+  }
 }
 
 /* ════════════════════════════════════════════
