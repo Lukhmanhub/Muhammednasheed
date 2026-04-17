@@ -525,26 +525,25 @@ img { display: block; }
 .details-hero {
   position: relative;
   width: 100%;
-  height: 290px; /* Figma: scrollable content starts at y=289 */
+  height: 480px;
   overflow: hidden;
   flex-shrink: 0;
 }
 .details-hero-bg {
   position: absolute;
   left: 0; right: 0;
-  top: -25%;
+  top: -10%;
   width: 100%;
-  height: 125%;
+  height: 115%;
   object-fit: cover;
-  object-position: center 40%;
+  object-position: center 35%;
 }
 .details-hero-overlay {
   position: absolute;
   inset: 0;
-  /* subtle tint, no white fade — white section starts via details-sheet */
   background: linear-gradient(180deg,
-    rgba(180,80,160,0.06) 0%,
-    rgba(180,80,160,0.03) 100%);
+    rgba(180,80,160,0.05) 0%,
+    rgba(180,80,160,0.08) 100%);
 }
 
 /* Music pill on details page */
@@ -555,72 +554,106 @@ img { display: block; }
   z-index: 10;
 }
 
-/* ── Details hero names — Figma absolute coords (393px frame) ── */
-/* Left block: Mohammed + Abdul Razak  ·  Figma x=39, y=98       */
-.dh-name-left {
-  position: absolute;
-  left: 39px;
-  top: 98px;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  font-family: var(--font-serif);
-  font-weight: 300;
-  color: #fff;
-  line-height: 1.05;
-  z-index: 2;
-}
-/* Ampersand  ·  Figma x=203, y=142, h=57, Bold Italic           */
-.dh-amp {
-  position: absolute;
-  left: 203px;
-  top: 138px;
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-style: italic;
-  font-size: 55px;
-  color: var(--primary);
-  line-height: 1.05;
-  z-index: 2;
-}
-/* Right block: Henna + Shireen  ·  Figma x=259, y=142           */
-.dh-name-right {
-  position: absolute;
-  left: 259px;
-  top: 142px;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  font-family: var(--font-serif);
-  font-weight: 300;
-  color: #fff;
-  line-height: 1.05;
-  z-index: 2;
-}
-/* Figma: Mohammed/Henna h=44 → ~38px; AbdulRazak/Shireen h=33 → ~28px */
-.dhn-first { font-size: 38px; letter-spacing: -0.025em; white-space: nowrap; }
-.dhn-last  { font-size: 28px; letter-spacing: -0.02em;  white-space: nowrap; }
+/* ── Details hero names — same style as splash ── */
 
-/* Divider ornament  ·  Figma x=109, y=222, w=175                */
-.dh-divider {
+/* Groom: Mohammed + Abdul Razak, centered */
+.dh-groom {
   position: absolute;
-  left: 109px;
-  top: 222px;
-  width: 175px;
-  height: 10px;
-  object-fit: contain;
-  opacity: 0.65;
-  filter: saturate(0) brightness(0.5);
+  left: 50%;
+  top: 110px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-astonia);
+  font-size: clamp(44px, 13.2vw, 52px);
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  line-height: 1.05;
+  white-space: nowrap;
   z-index: 2;
+}
+
+/* "weds" badge */
+.dh-weds-wrap {
+  position: absolute;
+  left: 50%;
+  top: 225px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 64px;
+  z-index: 3;
+}
+.dh-weds-bar {
+  position: absolute;
+  width: 80px;
+  height: 28px;
+  background: #f900a3;
+  border-radius: 3px;
+  transform: rotate(-21deg);
+}
+.dh-weds {
+  position: relative;
+  font-family: var(--font-comforter);
+  font-size: clamp(38px, 11.2vw, 44px);
+  color: #fff;
+  transform: rotate(-25deg);
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+/* Bride: Henna Shireen, centered */
+.dh-bride {
+  position: absolute;
+  left: 50%;
+  top: 283px;
+  transform: translateX(-50%);
+  font-family: var(--font-astonia);
+  font-size: clamp(44px, 13.2vw, 52px);
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  line-height: 1.05;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* Sparkle divider */
+.dh-divider-row {
+  position: absolute;
+  left: 50%;
+  top: 390px;
+  transform: translateX(-50%);
+  width: min(270px, calc(100% - 80px));
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 2;
+}
+.dh-divider-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.45);
+}
+.dh-sparkle-star {
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 /* ── White scrollable sheet ──────────────── */
 .details-sheet {
   background: #fff;
   border-radius: 24px 24px 0 0;
-  margin-top: -35px; /* overlap 35px into hero → date card sits on gradient bg */
+  margin-top: -45px;
   padding: 0 16px calc(env(safe-area-inset-bottom, 24px) + 48px);
-  min-height: calc(100dvh - 255px);
+  min-height: calc(100dvh - 435px);
 }
 
 /* ── Date row — floating card over hero gradient ── */
