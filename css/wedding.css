@@ -560,7 +560,7 @@ img { display: block; }
 .dh-groom {
   position: absolute;
   left: 50%;
-  top: 85px;
+  top: 108px;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
@@ -579,7 +579,7 @@ img { display: block; }
 .dh-weds-wrap {
   position: absolute;
   left: 50%;
-  top: 160px;
+  top: 183px;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
@@ -611,7 +611,7 @@ img { display: block; }
 .dh-bride {
   position: absolute;
   left: 50%;
-  top: 203px;
+  top: 226px;
   transform: translateX(-50%);
   font-family: var(--font-astonia);
   font-size: clamp(26px, 8.6vw, 34px);
@@ -627,7 +627,7 @@ img { display: block; }
 .dh-divider-row {
   position: absolute;
   left: 50%;
-  top: 263px;
+  top: 286px;
   transform: translateX(-50%);
   width: min(220px, calc(100% - 100px));
   display: flex;
