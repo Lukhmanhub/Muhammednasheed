@@ -25,6 +25,30 @@ let musicStarted = false;  // has audio.play() ever succeeded?
 let musicMuted   = false;  // is it currently muted?
 
 /* ════════════════════════════════════════════
+   AUDIO UNLOCK — iOS Safari requires a play()
+   call during a user gesture before any later
+   play() will succeed. We trigger a silent
+   play/pause on the very first touch so that
+   by the time the swipe completes, the audio
+   context is already unlocked.
+════════════════════════════════════════════ */
+(function unlockAudioOnFirstTouch() {
+  if (!bgMusic) return;
+  function unlock() {
+    bgMusic.muted = true;
+    bgMusic.play().then(() => {
+      bgMusic.pause();
+      bgMusic.currentTime = 0;
+      bgMusic.muted = false;
+    }).catch(() => {});
+    document.removeEventListener('touchstart', unlock, true);
+    document.removeEventListener('mousedown',  unlock, true);
+  }
+  document.addEventListener('touchstart', unlock, { capture: true, once: true, passive: true });
+  document.addEventListener('mousedown',  unlock, { capture: true, once: true });
+})();
+
+/* ════════════════════════════════════════════
    COUNTDOWN TIMER
 ════════════════════════════════════════════ */
 const cdDays  = document.getElementById('cd-days');
