@@ -553,7 +553,7 @@ img { display: block; }
 /* Music pill on details page */
 .music-pill-details {
   position: absolute;
-  top: calc(max(env(safe-area-inset-top, 0px), 54px) + 8px);
+  top: calc(max(env(safe-area-inset-top, 0px), 12px) + 8px);
   right: 16px;
   z-index: 10;
 }
@@ -564,7 +564,7 @@ img { display: block; }
 .dh-groom {
   position: absolute;
   left: 50%;
-  top: 108px;
+  top: 78px;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
@@ -583,7 +583,7 @@ img { display: block; }
 .dh-weds-wrap {
   position: absolute;
   left: 50%;
-  top: 183px;
+  top: 153px;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
@@ -615,7 +615,7 @@ img { display: block; }
 .dh-bride {
   position: absolute;
   left: 50%;
-  top: 226px;
+  top: 196px;
   transform: translateX(-50%);
   font-family: var(--font-astonia);
   font-size: clamp(26px, 8.6vw, 34px);
@@ -631,7 +631,7 @@ img { display: block; }
 .dh-divider-row {
   position: absolute;
   left: 50%;
-  top: 268px;
+  top: 238px;
   transform: translateX(-50%);
   width: min(220px, calc(100% - 100px));
   display: flex;
