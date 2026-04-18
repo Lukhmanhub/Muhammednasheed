@@ -883,13 +883,6 @@ img { display: block; }
   cursor: not-allowed; transform: none;
 }
 
-/* ── Stagger scroll animations ───────────── */
-.stagger-child {
-  opacity: 0; transform: translateY(18px);
-  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.25,0.8,0.25,1);
-}
-.stagger-child.visible { opacity: 1; transform: translateY(0); }
-
 /* ── Footer ──────────────────────────────── */
 .wedding-footer { margin-top: 44px; text-align: center; padding-bottom: 12px; }
 .wedding-footer p { font-size: 13px; color: var(--text-body); }

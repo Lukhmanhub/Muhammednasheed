@@ -230,28 +230,6 @@ function revealDetails() {
   splash.classList.add('exit');
   setTimeout(() => { splash.style.visibility = 'hidden'; }, 900);
 
-  setTimeout(triggerStagger, 500);
-}
-
-/* ════════════════════════════════════════════
-   STAGGER SCROLL ANIMATIONS (DETAILS PAGE)
-════════════════════════════════════════════ */
-function triggerStagger() {
-  const children = details.querySelectorAll('.stagger-child');
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px', root: details });
-
-  children.forEach((el, i) => {
-    el.style.transitionDelay = `${i * 0.08}s`;
-    io.observe(el);
-  });
 }
 
 /* ════════════════════════════════════════════
