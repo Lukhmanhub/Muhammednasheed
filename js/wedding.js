@@ -337,18 +337,18 @@ document.querySelectorAll('.download-btn:not(.disabled)').forEach(btn => {
    COPY GROUP CODE
 ════════════════════════════════════════════ */
 (function initCopyCode() {
-  const row = document.querySelector('.gallery-code-row');
+  const row = document.querySelector('.kwik-code-row');
   if (!row) return;
 
   function copyCode() {
-    const label = row.querySelector('.gallery-code-label');
+    const label = row.querySelector('.kwik-code-label');
     navigator.clipboard.writeText('NUOSAZ').then(() => {
       row.classList.add('copied');
       label.textContent = 'Copied! ✓';
       vibrate(15);
       setTimeout(() => {
         row.classList.remove('copied');
-        label.textContent = 'Group Code';
+        label.textContent = 'Group code';
       }, 2200);
     }).catch(() => {});
   }
