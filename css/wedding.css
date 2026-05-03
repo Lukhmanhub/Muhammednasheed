@@ -660,35 +660,68 @@ img { display: block; }
   min-height: calc(100dvh - 280px);
 }
 
-/* ── Date row — floating card over hero gradient ── */
-.date-row {
+/* ── Save the Date card ──────────────────────── */
+.save-date-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px 16px;
+  text-align: center;
+  gap: 5px;
+  padding: 22px 20px 20px;
   margin: 10px 0 16px;
-  background: rgba(255,255,255,0.97);
-  border: 0.75px solid rgba(162, 95, 153, 0.25);
-  border-radius: 16px; /* all 4 corners — standalone floating card */
-  box-shadow: 0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(120,2,105,0.07);
+  background: linear-gradient(160deg, rgba(120,2,105,0.04) 0%, #fff 55%);
+  border: 0.75px solid rgba(162,95,153,0.22);
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08), 0 2px 8px rgba(120,2,105,0.06);
   position: relative;
   z-index: 5;
 }
-.date-row-text {
+.sdt-ornament {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 150px;
+  margin-bottom: 4px;
+}
+.sdt-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(120,2,105,0.22);
+}
+.sdt-sparkle {
+  color: var(--primary);
+  font-size: 12px;
+  opacity: 0.65;
+  line-height: 1;
+}
+.sdt-eyebrow {
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-body);
+  letter-spacing: 0.03em;
+}
+.sdt-date {
+  font-family: var(--font-serif);
+  font-size: 21px;
   font-weight: 400;
   color: var(--text-dark);
-  letter-spacing: 0.01em;
-  line-height: 1.4;
-  flex: 1;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-top: 2px;
 }
-.mark-date-btn {
+.sdt-venue-hint {
+  font-size: 12px;
+  color: var(--text-body);
+  line-height: 1.4;
+}
+.sdt-cal-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 18px;
+  padding: 11px 24px;
+  margin-top: 10px;
   border-radius: var(--radius-pill);
   background: var(--primary);
   color: #fff;
@@ -696,10 +729,9 @@ img { display: block; }
   font-size: 13px;
   font-weight: 400;
   white-space: nowrap;
-  flex-shrink: 0;
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.2s, transform 0.15s;
 }
-.mark-date-btn:active { background: var(--primary-dark); transform: scale(0.97); }
+.sdt-cal-btn:active { background: var(--primary-dark); transform: scale(0.97); }
 
 /* ── Section heading ─────────────────────── */
 .card-section { margin-top: 22px; }
@@ -719,34 +751,57 @@ img { display: block; }
   padding: 18px 20px;
 }
 
-/* ── Venue card ──────────────────────────── */
-.venue-body { display: flex; flex-direction: column; gap: 16px; }
-.venue-text { display: flex; flex-direction: column; gap: 8px; }
+/* ── Venue card — elegant redesign ───────── */
+.venue-elegant { display: flex; flex-direction: column; gap: 0; }
+.venue-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.venue-pin-circle {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(120,2,105,0.09);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  color: var(--primary);
+}
+.venue-text { display: flex; flex-direction: column; gap: 5px; flex: 1; }
 .venue-name {
   font-family: var(--font-serif);
-  font-size: 22px; font-weight: 400;
+  font-size: 20px; font-weight: 400;
   color: var(--text-dark);
   letter-spacing: -0.025em;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 .venue-addr {
-  font-size: 12px; color: var(--text-body); line-height: 1.5;
+  font-size: 12px; color: var(--text-body); line-height: 1.45;
+}
+.venue-sep {
+  height: 1px;
+  background: var(--border);
+  margin: 14px 0;
 }
 .venue-time {
-  display: flex; align-items: center; gap: 6px;
+  display: flex; align-items: center; gap: 7px;
   font-size: 12px; color: var(--text-dark);
+  margin-bottom: 16px;
 }
-.directions-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  align-self: flex-start;
-  padding: 9px 14px;
+.directions-btn-full {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--primary);
-  color: var(--primary);
-  font-size: 11px; font-weight: 400;
-  transition: background 0.2s, color 0.2s;
+  background: linear-gradient(135deg, var(--primary) 0%, #5a0050 100%);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  transition: opacity 0.2s, transform 0.15s;
 }
-.directions-btn:active { background: var(--primary); color: #fff; }
+.directions-btn-full:active { opacity: 0.88; transform: scale(0.97); }
 
 /* ── Contact cards ───────────────────────── */
 .contact-full {
@@ -779,43 +834,94 @@ img { display: block; }
 .contact-center .contact-name { font-size: 18px; }
 .contact-center .phone-btn { margin-top: 10px; }
 
-/* ── How to Reach — transport cards ─────── */
-.transport-cards { display: flex; flex-direction: column; gap: 10px; }
-.transport-card { padding: 16px 18px; }
-.transport-header {
-  display: flex; align-items: center; gap: 14px;
-  margin-bottom: 14px;
+/* ── How to Reach — accordion ────────────── */
+.transport-accordion { display: flex; flex-direction: column; gap: 8px; }
+
+.accordion-item {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
+.accordion-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 15px 18px;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.18s;
+}
+.accordion-header:active { background: rgba(120,2,105,0.05); }
 .transport-icon {
-  width: 46px; height: 46px; border-radius: 10px;
-  background: #f0f0f0;
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(120,2,105,0.08);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   color: var(--primary);
+  transition: background 0.2s;
 }
+.accordion-item.open .transport-icon { background: rgba(120,2,105,0.14); }
 .transport-title {
-  font-size: 16px; font-weight: 500; color: var(--text-dark);
+  font-size: 15px; font-weight: 500; color: var(--text-dark); flex: 1;
 }
+.accordion-chevron {
+  color: var(--text-body);
+  flex-shrink: 0;
+  transition: transform 0.32s cubic-bezier(0.32,0.72,0,1);
+}
+.accordion-item.open .accordion-chevron { transform: rotate(180deg); }
+
+/* CSS grid trick — smooth height animation without JS max-height hacks */
+.accordion-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.32s cubic-bezier(0.32,0.72,0,1);
+}
+.accordion-item.open .accordion-body {
+  grid-template-rows: 1fr;
+}
+.accordion-inner {
+  overflow: hidden;
+  padding: 0 18px;
+  transition: padding 0.32s cubic-bezier(0.32,0.72,0,1);
+}
+.accordion-item.open .accordion-inner {
+  padding: 0 18px 16px;
+}
+
 .transport-list {
-  list-style: disc; padding-left: 18px;
-  display: flex; flex-direction: column; gap: 6px;
+  list-style: none;
+  display: flex; flex-direction: column; gap: 7px;
+  padding: 0;
 }
-.transport-list li { font-size: 13px; color: var(--text-body); line-height: 1.5; }
+.transport-list li {
+  font-size: 13px; color: var(--text-body); line-height: 1.5;
+  padding-left: 14px;
+  position: relative;
+}
+.transport-list li::before {
+  content: '·';
+  position: absolute; left: 0;
+  color: var(--primary);
+  font-weight: 700;
+}
 .t-highlight { color: var(--primary); font-weight: 500; }
 
-/* ── Kwikpic card ────────────────────────── */
-.kwik-card { padding: 0; overflow: hidden; }
+/* ── Photo Gallery / Selfie card ─────────── */
+.selfie-card { padding: 0; overflow: hidden; }
 
 /* Gradient header */
-.kwik-header {
+.selfie-header {
   background: linear-gradient(135deg, #c040a0 0%, #780269 100%);
-  padding: 22px 20px 22px;
+  padding: 22px 20px;
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-/* Animated face-scan rings */
-.kwik-scan-wrap {
+/* Animated face-scan rings (shared with selfie) */
+.selfie-scan-wrap {
   position: relative;
   width: 54px; height: 54px;
   display: flex; align-items: center; justify-content: center;
@@ -835,70 +941,53 @@ img { display: block; }
 }
 .kwik-face-icon { color: #fff; position: relative; z-index: 1; }
 
-/* "Kwikpic" brand pill */
-.kwik-brand-tag {
+/* "Coming Soon" badge */
+.selfie-coming-tag {
   margin-left: auto;
   color: rgba(255,255,255,0.9);
-  font-family: var(--font-poppins);
+  font-family: var(--font-sans);
   font-size: 10px; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
+  letter-spacing: 0.08em; text-transform: uppercase;
   background: rgba(255,255,255,0.15);
   padding: 4px 11px; border-radius: var(--radius-pill);
   border: 1px solid rgba(255,255,255,0.22);
 }
 
 /* Body */
-.kwik-body { padding: 18px 20px 20px; }
+.selfie-body { padding: 18px 20px 22px; }
 
-.kwik-headline {
+.selfie-headline {
   font-family: var(--font-serif);
   font-size: 24px; font-weight: 400;
   color: var(--text-dark);
   line-height: 1.2; letter-spacing: -0.02em;
 }
-.kwik-sub {
+.selfie-sub {
   font-size: 13px; color: var(--text-body);
-  line-height: 1.55; margin-top: 8px;
+  line-height: 1.6; margin-top: 9px;
 }
 
-/* Single CTA */
-.kwik-cta {
+/* CTA — disabled state */
+.selfie-cta {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   width: 100%; margin-top: 18px;
   padding: 14px;
-  background: var(--primary); color: #fff;
+  background: rgba(120,2,105,0.18);
+  color: rgba(120,2,105,0.55);
   border-radius: var(--radius-pill);
-  font-family: var(--font-poppins); font-size: 15px; font-weight: 500;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.15s;
+  font-family: var(--font-sans); font-size: 15px; font-weight: 500;
+  cursor: not-allowed;
+  border: none;
 }
-.kwik-cta:active { background: var(--primary-dark); transform: scale(0.97); }
 
-/* Group code hint */
-.kwik-code-row {
-  display: flex; align-items: center; gap: 8px;
-  margin-top: 10px; padding: 9px 14px;
-  background: rgba(120,2,105,0.05);
-  border-radius: 10px;
-  border: 1px dashed rgba(120,2,105,0.22);
-  cursor: pointer; user-select: none;
-  transition: background 0.15s;
+.selfie-note {
+  font-size: 11px;
+  color: var(--text-body);
+  text-align: center;
+  margin-top: 10px;
+  font-style: italic;
+  opacity: 0.75;
 }
-.kwik-code-row:active  { background: rgba(120,2,105,0.10); }
-.kwik-code-row.copied  { background: rgba(120,2,105,0.08); }
-.kwik-code-label {
-  font-size: 12px; color: var(--text-body);
-  transition: color 0.2s;
-}
-.kwik-code-row.copied .kwik-code-label { color: var(--primary); font-weight: 500; }
-.kwik-code-val {
-  font-family: 'Courier New', monospace;
-  font-size: 14px; font-weight: 700;
-  color: var(--primary); letter-spacing: 0.06em;
-  flex: 1;
-}
-.kwik-copy-icon { color: var(--primary); opacity: 0.5; transition: opacity 0.15s; }
-.kwik-code-row.copied .kwik-copy-icon { opacity: 0; }
 
 /* ── Downloads ───────────────────────────── */
 .download-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }

@@ -333,31 +333,6 @@ document.querySelectorAll('.download-btn:not(.disabled)').forEach(btn => {
   btn.addEventListener('click', () => downloadWeddingCard(btn));
 });
 
-/* ════════════════════════════════════════════
-   COPY GROUP CODE
-════════════════════════════════════════════ */
-(function initCopyCode() {
-  const row = document.querySelector('.kwik-code-row');
-  if (!row) return;
-
-  function copyCode() {
-    const label = row.querySelector('.kwik-code-label');
-    navigator.clipboard.writeText('NUOSAZ').then(() => {
-      row.classList.add('copied');
-      label.textContent = 'Copied! ✓';
-      vibrate(15);
-      setTimeout(() => {
-        row.classList.remove('copied');
-        label.textContent = 'Group code';
-      }, 2200);
-    }).catch(() => {});
-  }
-
-  row.addEventListener('click', copyCode);
-  row.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyCode(); }
-  });
-})();
 
 /* ════════════════════════════════════════════
    HAPTIC FEEDBACK (PWA / Safari)
@@ -372,3 +347,27 @@ swipeThumb.addEventListener('touchstart', () => vibrate(10), { passive: true });
    LUCIDE ICONS — initialise all data-lucide
 ════════════════════════════════════════════ */
 if (typeof lucide !== 'undefined') lucide.createIcons();
+
+/* ════════════════════════════════════════════
+   TRANSPORT ACCORDION
+════════════════════════════════════════════ */
+(function initAccordion() {
+  const items = document.querySelectorAll('.accordion-item');
+  items.forEach(item => {
+    const header = item.querySelector('.accordion-header');
+    if (!header) return;
+    header.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      // Close all
+      items.forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+      });
+      // Open the clicked one if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        header.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
